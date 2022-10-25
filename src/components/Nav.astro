@@ -96,9 +96,8 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 					construtora,    
 				}
 			},
-			abdunct: (d) => {
-				console.log(d);
-				d = d || 0.2;
+			abdunct: () => {
+				let d = d || 0.2;
 				obj.svg.content.removeEventListener('click', obj.abdunct);
 				tl.to(wrapper, {height: abdunctedHeight, duration: d*2});
 				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: d}, "+=0.4");
@@ -107,9 +106,8 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 				tl.to(construtoraContent, {textContent: construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
 				obj.svg.content.addEventListener('click', obj.expand);
 			},
-			expand: (d) => {
-				console.log(d);
-				d = d || 0.1;
+			expand: () => {
+				let d = d || 0.1;
 				obj.svg.content.removeEventListener('click', obj.expand)
 				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: d})
 				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: d}, "<")
@@ -127,8 +125,8 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 	
 	let logo = LogoComponent();
 		
-	if(!startsOpen) logo.abdunct(0)
-	else  logo.expand(0)
+	if(!startsOpen) logo.abdunct()
+	else  logo.expand()
 		
 	})
 </script>
