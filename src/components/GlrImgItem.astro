@@ -1,13 +1,13 @@
 ---
 import '../pages/portfolio/[...project].css';
-const {session, i} = Astro.props;
+const {session, i, height, width} = Astro.props;
 ---
 
 <div 
     x-bind:class="open? 'item actived' : 'item'"
     id={`img-galery-item img-galery-item#${i}`}
-    x-data="{ open: false }"
-    style="height: 300px">
+    style={{height, width}}
+    x-data="{ open: false }">
     { session.foto.split('.').pop() == "mp4" ?
         <video  x-on:click="open=!open" muted={true} autoplay={true} loop={true}>
             <source src={session.foto} type="video/mp4"/>
@@ -23,7 +23,7 @@ const {session, i} = Astro.props;
         <caption>
             {session.shortstory}
         </caption>
-        {session.tailstory.length>3 && 
+        {session.tailstory && session.tailstory.length>3 && 
           <small x-show="!tailstoryOpen" x-on:click="tailstoryOpen=!tailstoryOpen">mais...</small>
           <div x-show="tailstoryOpen" x-on:click="tailstoryOpen=false">
             {session.tailstory}

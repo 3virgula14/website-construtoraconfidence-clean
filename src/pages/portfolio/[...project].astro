@@ -22,10 +22,10 @@ import Placa from '../../components/Placa.astro';
 
 	<Nav/>
 
-  <div id="img-galery">
+  <div id="img-galery" style={`--itemslength: ${data.sessions? data.sessions.length : 0}`}>
     {data.sessions && data.sessions.map( (session, i) => (
         <>
-          <GlrImgItem session={session} i={i} />
+          <GlrImgItem session={session} i={i} width={(data.sessions? 100/(data.sessions.length/3) : 100)+"%"} height={(data.sessions? 100/(data.sessions.length/2) : 100)+"%"}/>
         </>
     ))}
   </div>
@@ -39,11 +39,11 @@ import Placa from '../../components/Placa.astro';
       </section>
     )}
     
-    {data.sessions.length>0 && 
+    {data.sessions && data.sessions.length>0 && 
       <>
       <h3>Registros</h3>
         {data.sessions.map( (session, i) => (
-          <section class="p_session">
+          session['mdsession'] && <section class="p_session">
             <div set:html={md().render(session['mdsession'])}/>
           </section>
         ))}
