@@ -80,6 +80,7 @@
 		tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
 		tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
 
+
 		
 		let obj = {
 			wrapper,
@@ -91,7 +92,7 @@
 					construtora,    
 				}
 			},
-			abdunct: (e) => {
+			abdunct: () => {
 				obj.svg.content.removeEventListener('click', obj.abdunct)
 				tl.to(wrapper, {height: abdunctedHeight})
 				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: 0.2}, "+=0.4")
@@ -100,7 +101,7 @@
 				setTimeout(() => construtoraContent.textContent = construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), 1000)
 				obj.svg.content.addEventListener('click', obj.expand)
 			},
-			expand: (e) => {
+			expand: () => {
 				obj.svg.content.removeEventListener('click', obj.expand)
 				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: 0.1})
 				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: 0.1}, "<")
@@ -110,7 +111,7 @@
 				obj.svg.content.addEventListener('click', obj.abdunct) 
 			}
 		}
-		
+
 		obj.svg.content.addEventListener('click', obj.abdunct)
 
 		return obj
