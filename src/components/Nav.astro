@@ -97,6 +97,7 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 				}
 			},
 			abdunct: (d) => {
+				console.log(d);
 				d = d || 0.2;
 				obj.svg.content.removeEventListener('click', obj.abdunct);
 				tl.to(wrapper, {height: abdunctedHeight, duration: d*2});
@@ -107,6 +108,7 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 				obj.svg.content.addEventListener('click', obj.expand);
 			},
 			expand: (d) => {
+				console.log(d);
 				d = d || 0.1;
 				obj.svg.content.removeEventListener('click', obj.expand)
 				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: d})
