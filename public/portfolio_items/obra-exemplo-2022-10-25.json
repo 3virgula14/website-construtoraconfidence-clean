@@ -2,11 +2,25 @@
   "titulo": "Obra (exemplo)",
   "sessions": [
     {
-      "foto": "https://construtoraconfidence.com/uploads/wp5430305-desktop-edgy-wallpapers.png",
-      "titulo": "galeria de sessões, título da foto 1",
-      "shortstory": "Descrição curta da foto 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut lobortis mi, quis maximus orci. Quisque nec purus eu purus vestibulum facilisis et in odio. Integer at ne",
-      "tailstory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut lobortis mi, quis maximus orci. Quisque nec purus eu purus vestibulum facilisis et in odio. Integer at ne",
-      "mdsession": "\n\n```\n\n```"
+      "foto": "https://construtoraconfidence.com/uploads/img_2028.jpeg",
+      "titulo": " ",
+      "shortstory": " ",
+      "tailstory": " ",
+      "mdsession": ","
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_2026.jpeg",
+      "titulo": " ",
+      "shortstory": " ",
+      "tailstory": " ",
+      "mdsession": ".."
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/603b4e65-aef1-4b61-8a29-484d5125620c.jpeg",
+      "titulo": " ",
+      "shortstory": " ",
+      "tailstory": " ",
+      "mdsession": " ."
     }
   ],
   "story": {
