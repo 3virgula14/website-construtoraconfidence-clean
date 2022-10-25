@@ -1,4 +1,7 @@
 ---
+import Footer from "../../components/Footer.astro";
+import Nav from "../../components/Nav.astro";
+import Placa from "../../components/Placa.astro";
 import MainHead from "../../MainHead.astro";
 
 const data = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
@@ -8,15 +11,58 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
 <html lang="en">
 <MainHead/>
 <body>
-    {data['portfolio']&& data['portfolio'].map((obra, index) => {
-        return(
-            <section id={`obra#${index}`}>
-                <h4>{obra.titulo}</h4>
-                {obra.story && 
-                    (<caption set:html={obra.story.twitterlike}/>
-                    <a href={`portfolio/${index}`}>mais ...</a>)}
-            </section>
-        )
-    })}
+    <Placa/>
+	<Nav/>	
+    <div class=" section content ">
+        {data['portfolio']&& data['portfolio'].map((obra, index) => {
+            return(
+                <section id={`obra#${index}`}>
+                    <div class="title-box">
+                        <img onclick={`window.location = "portfolio/${index}"`} src={obra.sessions[0].foto} alt=""/>
+                        <h2>{obra.titulo}</h2>
+                    </div>
+                    {obra.story && 
+                        (<caption set:html={obra.story.twitterlike}/>
+                        <a href={`portfolio/${index}`}>mais ...</a>)}
+                </section>
+            )
+        })}
+    </div>
+
+    <style>
+        .section.content > *{
+            margin-bottom: 40px;
+            font-size: medium;
+            padding-inline: 2em
+        }
+
+        .section.content > h2{
+            padding-inline: 1em;
+            font-size: 32px;
+        }
+
+        .title-box{
+        }
+        .title-box img{
+            object-fit: cover;
+            filter: brightness(0.9);
+            opacity: 0.75;
+            transition: all 0.2s;
+            height: 100px;
+            width: calc(100% + 10px);
+            margin-left: -5px;
+            cursor: pointer;
+        }
+        .title-box img:hover{
+            filter: brightness(1);
+            opacity: 1;
+            height: 130px;
+        }
+        .p_session img{
+            max-height: 70vh;
+        }
+    </style>
+    
+    <Footer></Footer>
 </body>
 </html>
