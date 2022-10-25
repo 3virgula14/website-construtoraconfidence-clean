@@ -39,7 +39,7 @@ import Placa from '../../components/Placa.astro';
       </section>
     )}
     
-    {data.sessions && 
+    {data.sessions.length>0 && 
       <>
       <h3>Registros</h3>
         {data.sessions.map( (session, i) => (

@@ -12,10 +12,11 @@ fs.readdir("public/portfolio_items", (err, files) => {
         let finaljson = JSON.parse(`{"portfolio":[${fileContentArr.slice(0, -1)}]}`)
         finaljson['portfolio'] = finaljson['portfolio'].map( (j, i) => {
           j['sessions'] = j['sessions'].map( (s, ii) => {
-            if(s['mdsession'].length<10){
-              s['mdsession'] += `![](${s['foto']})`
-              s['mdsession'] += `\n${s['shortstory']}\n${s['tailstory']}`
-            }
+            if(s['mdsession'])
+              if(s['mdsession'].length<10){
+                s['mdsession'] += `![](${s['foto']})`
+                s['mdsession'] += `\n${s['shortstory']}\n${s['tailstory']}`
+              }
             return s
           })
           return j
