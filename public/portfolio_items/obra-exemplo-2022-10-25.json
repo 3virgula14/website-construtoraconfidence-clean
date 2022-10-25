@@ -1,0 +1,16 @@
+{
+  "titulo": "Obra (exemplo)",
+  "sessions": [
+    {
+      "foto": "https://construtoraconfidence.com/uploads/wp5430305-desktop-edgy-wallpapers.png",
+      "titulo": "galeria de sessões, título da foto 1",
+      "shortstory": "Descrição curta da foto 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut lobortis mi, quis maximus orci. Quisque nec purus eu purus vestibulum facilisis et in odio. Integer at ne",
+      "tailstory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut lobortis mi, quis maximus orci. Quisque nec purus eu purus vestibulum facilisis et in odio. Integer at ne",
+      "mdsession": "\n\n```\n\n```"
+    }
+  ],
+  "story": {
+    "twitterlike": "#Story\n\nNunc vitae pulvinar orci. Aliquam lacinia ultricies metus vulputate dapibus. Donec iaculis, ipsum vitae tempus imperdiet, justo mi dapibus nisl, vel posuere massa justo sed justo. Aliquam vel dictum ex. Aenean at eleifend arcu, et porta neque. Vivamus non justo at augue viverra ultrices vitae eget dui. Sed mauris enim, pellentesque ac nulla pellentesque, viverra ",
+    "2paraph": "\\#Descrição longa\n\n\n\n> They can span multiple paragraphs,\n> if you like.\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., \"it's all\nin chapters 12--14\"). Three dots ... will be converted to an ellipsis.\nUnicode is supported. ☺\n\n\n\n(which makes copying & pasting easier). You can optionally mark the\ndelimited block for Pandoc to syntax highlight it:\n\n\n\n```\nExemplo   | Valor do exemplo\n--------- | ------\nExemplo 1 | R$ 10\nExemplo 2 | R$ 8\nExemplo 3 | R$ 7\nExemplo 4 | R$ 8\n```"
+  }
+}
