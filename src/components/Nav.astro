@@ -1,5 +1,5 @@
 ---
-const {startsOpen} = Astro.props || {startsOpen: false}
+export const {startsOpen} = Astro.props || {startsOpen: false}
 ---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
@@ -54,6 +54,8 @@ const {startsOpen} = Astro.props || {startsOpen: false}
 }
 </style>
 <script>
+	import {startsOpen} from './Nav.astro';
+	
 	window.addEventListener('load', () => {
 		//construction
 	let tl = gsap.timeline()
