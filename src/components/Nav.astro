@@ -97,20 +97,22 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 					construtora,    
 				}
 			},
-			abdunct: () => {
-				obj.svg.content.removeEventListener('click', obj.abdunct)
-				tl.to(wrapper, {height: abdunctedHeight})
-				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: 0.2}, "+=0.4")
-				tl.to(obj.svg.logoName.construtora, {opacity: 0, duration: 0.2}, "<")
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1263.6, 127)", duration: 0.2}, "<")
-				tl.to(construtoraContent, {textContent: construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: 0.2}, "<")
-				obj.svg.content.addEventListener('click', obj.expand)
+			abdunct: (d) => {
+				d = d || 0.2;
+				obj.svg.content.removeEventListener('click', obj.abdunct);
+				tl.to(wrapper, {height: abdunctedHeight});
+				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: d}, "+=0.4");
+				tl.to(obj.svg.logoName.construtora, {opacity: 0, duration: d}, "<");
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1263.6, 127)", duration: d}, "<");
+				tl.to(construtoraContent, {textContent: construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
+				obj.svg.content.addEventListener('click', obj.expand);
 			},
-			expand: () => {
+			expand: (d) => {
+				d = d || 0.1;
 				obj.svg.content.removeEventListener('click', obj.expand)
-				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: 0.1})
-				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: 0.1}, "<")
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: 0.1}, "<")
+				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: d})
+				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: d}, "<")
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: d}, "<")
 				tl.to(wrapper, {height: " calc(100vh + 5px)"})
 				setTimeout(() => construtoraContent.textContent = construtoraContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), 150)
 				obj.svg.content.addEventListener('click', obj.abdunct) 
@@ -123,8 +125,10 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 	}
 	
 	let logo = LogoComponent();
-	if(!startsOpen) logo.abdunct()
-	if(startsOpen) document.querySelector("#wrapper").style.height = "100vh";
+		
+	if(!startsOpen) logo.abdunct(0)
+	else  logo.expand(0)
+		
 	})
 </script>
 
