@@ -39,6 +39,16 @@ import Placa from '../../components/Placa.astro';
       </section>
     )}
     
+    {data.sessions && 
+      <>
+      <h3>Registros</h3>
+        {data.sessions.map( (session, i) => (
+          <section class="p_session">
+            <div set:html={md().render(session['mdsession'])}/>
+          </section>
+        ))}
+      </>
+    }
   </div>
 
 	<Footer></Footer>
