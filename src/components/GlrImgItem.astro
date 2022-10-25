@@ -16,16 +16,34 @@ const {session, i} = Astro.props;
         <img x-on:click="open=!open"
         src={session.foto} alt={session.shortstory} />
     }
+
+    <h2>{session.titulo}</h2>
     
-    <span class="glritem-desc">
+    <span x-data="{ tailstoryOpen: false }" class="glritem-desc">
         <caption>
             {session.shortstory}
         </caption>
-        {session.tailstory}
+        <small x-show="!tailstoryOpen" x-on:click="tailstoryOpen=!tailstoryOpen">mais...</small>
+        <div x-show="tailstoryOpen" x-on:click="tailstoryOpen=false">
+          {session.tailstory}
+        </div>
     </span>
 </div>
 
 <style>
+  .item h2{
+    position: absolute;
+    top: 1em;
+    left: 5%;
+    mix-blend-mode: difference;
+    color: #cac693;
+    opacity: 0;
+    transition: all 0.2s;
+    font-size: 32px;
+  }
+  .item.actived h2{
+    opacity: 1;
+  }
   .item.actived .glritem-desc{
     width: auto !important;
   }
@@ -35,5 +53,8 @@ const {session, i} = Astro.props;
     color: #fffafa;
     mix-blend-mode: screen;
     overflow-y: scroll !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 </style>

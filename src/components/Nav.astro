@@ -56,6 +56,8 @@
 		//construction
 	let tl = gsap.timeline()
 	const abdunctedHeight = "70px";
+	const abdunctedTspanContent = "Confidence website"
+	const expandedTspanContent = "CONFIDENCE"
   
 	const LogoComponent = () => {
 		let wrapper = document.querySelector("#wrapper");
@@ -67,16 +69,16 @@
 		let content = wrapper.contentDocument.querySelector("#content");
 		content.style.opacity = 0;
 		content.style.cursor = "pointer";
-		console.log(content)
+		content.style.transformOrigin = "center 40%"
 	
 		let construtora = wrapper.contentDocument.querySelector("#construtora");
 		let confidence = wrapper.contentDocument.querySelector("#confidence");
-		console.log(construtora, confidence)
+		let construtoraContent = confidence.querySelector("tspan");
 	
 		//landing animations
+		tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
 		tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
 		tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
-		tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
 
 		
 		let obj = {
@@ -92,18 +94,19 @@
 			abdunct: (e) => {
 				obj.svg.content.removeEventListener('click', obj.abdunct)
 				tl.to(wrapper, {height: abdunctedHeight})
-				obj.svg.content.style.transformOrigin = "center 40%"
 				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: 0.2}, "+=0.4")
 				tl.to(obj.svg.logoName.construtora, {opacity: 0, duration: 0.2}, "<")
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1177.6, 143)", duration: 0.2}, "<")
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1263.6, 127)", duration: 0.2}, "<")
+				setTimeout(() => construtoraContent.textContent = construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), 1000)
 				obj.svg.content.addEventListener('click', obj.expand)
 			},
 			expand: (e) => {
 				obj.svg.content.removeEventListener('click', obj.expand)
 				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: 0.1})
-				tl.to(wrapper, {height: " calc(100vh + 5px)"})
 				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: 0.1}, "<")
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: 0.2}, "<")
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: 0.1}, "<")
+				tl.to(wrapper, {height: " calc(100vh + 5px)"})
+				setTimeout(() => construtoraContent.textContent = construtoraContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), 150)
 				obj.svg.content.addEventListener('click', obj.abdunct) 
 			}
 		}

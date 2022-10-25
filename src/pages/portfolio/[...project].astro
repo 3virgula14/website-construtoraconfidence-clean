@@ -33,16 +33,12 @@ import Placa from '../../components/Placa.astro';
   <div class=" section content ">
     <h2>{data.titulo}</h2>
 
-    <section>
-      <p set:html={md().render(data.story.twitterlike)}>
-        
-      </p>
-    </section>
-    <section>
-        <p set:html={md().render(data.story["2paraph"])}>
-          
-        </p>
-    </section>
+    {data.story && Object.keys(data.story).map((storyPart, index) => 
+      <section class={storyPart}>
+          <p set:html={md().render(data.story[storyPart])}></p>
+      </section>
+    )}
+    
   </div>
 
 	<Footer></Footer>
