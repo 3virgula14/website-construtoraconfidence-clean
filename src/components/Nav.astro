@@ -63,6 +63,7 @@ const {startsOpen} = Astro.props || {startsOpen: false}
   
 	const LogoComponent = () => {
 		let wrapper = document.querySelector("#wrapper");
+		if(startsOpen) wrapper.style.height = "100vh";
 		let all = wrapper.querySelectorAll("svg > *");
 		all.forEach(el => {
 			el.style.opacity = 0
