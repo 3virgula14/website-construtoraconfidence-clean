@@ -26,10 +26,10 @@ collections:
         allow_add: true
         fields: 
           - {label: "Foto", name: "foto", widget: "file"}
-          - {label: "Título", name: "titulo", widget: "string"}
-          - {label: "Descrição curta", name: "shortstory", widget: "text"}
-          - {label: "Descrição longa", name: "tailstory", widget: "text"}
-          - {label: "MD Session", name: "mdsession", widget: "markdown"}
+          - {label: "Título", name: "titulo", widget: "string", required: false}
+          - {label: "Descrição curta", name: "shortstory", widget: "text", required: false}
+          - {label: "Descrição longa", name: "tailstory", widget: "text", required: false}
+          - {label: "MD Session", name: "mdsession", widget: "markdown", required: false}
               
       - label: "Story"
         name: story

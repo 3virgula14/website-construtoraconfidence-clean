@@ -23,10 +23,11 @@ const {session, i} = Astro.props;
         <caption>
             {session.shortstory}
         </caption>
-        <small x-show="!tailstoryOpen" x-on:click="tailstoryOpen=!tailstoryOpen">mais...</small>
-        <div x-show="tailstoryOpen" x-on:click="tailstoryOpen=false">
-          {session.tailstory}
-        </div>
+        {session.tailstory.length>3 && 
+          <small x-show="!tailstoryOpen" x-on:click="tailstoryOpen=!tailstoryOpen">mais...</small>
+          <div x-show="tailstoryOpen" x-on:click="tailstoryOpen=false">
+            {session.tailstory}
+          </div>}
     </span>
 </div>
 
