@@ -1,15 +1,15 @@
 import fs from 'fs'
 
-fs.readdir(__dirname+"/public/portfolio_items", (err, files) => {
+fs.readdir("public/portfolio_items", (err, files) => {
     if (err)
       console.log(err);
     else {
         let fileContentArr = []
         files.forEach(file => {
-            const data = fs.readFileSync(__dirname+"/public/portfolio_items/"+file, 'utf8');
+            const data = fs.readFileSync("public/portfolio_items/"+file, 'utf8');
             fileContentArr+= data+",";
         })
         let finaljson = JSON.parse(`{"portfolio":[${fileContentArr.slice(0, -1)}]}`)
-        fs.writeFile(__dirname+"/public/data.json", JSON.stringify(finaljson), (err) =>{})
+        fs.writeFile("public/data.json", JSON.stringify(finaljson), (err) =>{})
     }
   })
