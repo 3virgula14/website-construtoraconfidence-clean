@@ -1,4 +1,6 @@
-
+---
+export const {startsOpen} = Astro.props || {startsOpen: false}
+---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
 </object>
@@ -52,6 +54,8 @@
 }
 </style>
 <script>
+import { startsOpen } from "./Nav.astro";
+
 	window.addEventListener('load', () => {
 		//construction
 	let tl = gsap.timeline()
@@ -98,7 +102,7 @@
 				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: 0.2}, "+=0.4")
 				tl.to(obj.svg.logoName.construtora, {opacity: 0, duration: 0.2}, "<")
 				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1263.6, 127)", duration: 0.2}, "<")
-				setTimeout(() => construtoraContent.textContent = construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), 1000)
+				tl.to(construtoraContent, {textContent: construtoraContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: 0.2}, "<")
 				obj.svg.content.addEventListener('click', obj.expand)
 			},
 			expand: () => {
@@ -112,12 +116,13 @@
 			}
 		}
 
-		obj.svg.content.addEventListener('click', obj.abdunct)
+		obj.svg.content.addEventListener('click', obj.abdunct);
 
 		return obj
 	}
-
-		let logo = LogoComponent();
+	
+	let logo = LogoComponent();
+	if(!startsOpen) logo.abdunct()
 	})
 </script>
 

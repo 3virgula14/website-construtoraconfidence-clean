@@ -20,7 +20,7 @@ import Placa from '../../components/Placa.astro';
 <body>
 	<Placa/>
 
-	<Nav/>
+	<Nav  startsOpen={false}/>
 
   <div id="img-galery" style={`--itemslength: ${data.sessions? data.sessions.length : 0}`}>
     {data.sessions && data.sessions.map( (session, i) => (
