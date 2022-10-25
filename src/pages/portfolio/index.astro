@@ -14,7 +14,7 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
                 <h4>{obra.titulo}</h4>
                 {obra.story && 
                     (<caption set:html={obra.story.twitterlike}/>
-                    <a href={index}>mais ...</a>)}
+                    <a href={`portfolio/${index}`}>mais ...</a>)}
             </section>
         )
     })}
