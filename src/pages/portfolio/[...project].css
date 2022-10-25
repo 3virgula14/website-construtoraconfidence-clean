@@ -7,7 +7,7 @@
     overflow-x: visible;
     flex-wrap: wrap;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
     margin: 0 auto;
     width: 100vw;
 }
@@ -28,8 +28,9 @@
 #img-galery .item.actived {
     z-index: 1001;
     order: 0;
+    max-width: 100% !important;
     width: 100% !important;
-    height: calc(100vh - 65px) !important;
+    max-height: calc(100vh - 65px) !important;
 }
 #img-galery .item.actived > img{
     width: auto;

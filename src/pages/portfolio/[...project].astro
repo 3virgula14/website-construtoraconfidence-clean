@@ -25,7 +25,7 @@ import Placa from '../../components/Placa.astro';
   <div id="img-galery" style={`--itemslength: ${data.sessions? data.sessions.length : 0}`}>
     {data.sessions && data.sessions.map( (session, i) => (
         <>
-          <GlrImgItem session={session} i={i} width={(data.sessions? 100/(data.sessions.length/3) : 100)+"%"} height={(data.sessions? 100/(data.sessions.length/2) : 100)+"%"}/>
+          <GlrImgItem session={session} i={i} style={{maxWidth: (data.sessions? 100/(data.sessions.length/2) : 100)+"%", maxHeight: (data.sessions? 100/(data.sessions.length/4) : 100)+"%"}}/>
         </>
     ))}
   </div>

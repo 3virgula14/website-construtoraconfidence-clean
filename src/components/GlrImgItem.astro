@@ -1,15 +1,15 @@
 ---
 import '../pages/portfolio/[...project].css';
-const {session, i, height, width} = Astro.props;
+const {session, i, style} = Astro.props;
 ---
 
 <div 
     x-bind:class="open? 'item actived' : 'item'"
     id={`img-galery-item img-galery-item#${i}`}
-    style={{height, width}}
+    style={style}
     x-data="{ open: false }">
     { session.foto.split('.').pop() == "mp4" ?
-        <video  x-on:click="open=!open" muted={true} autoplay={true} loop={true}>
+        <video x-on:click="open=!open" muted={true} autoplay={true} loop={true}>
             <source src={session.foto} type="video/mp4"/>
         </video>
     : 
@@ -30,6 +30,18 @@ const {session, i, height, width} = Astro.props;
           </div>}
     </span>
 </div>
+
+<script>
+  window.addEventListener('load', () => {
+    let wr = window.document.querySelectorAll("#img-galery .item")
+    wr.forEach((el, index) => {
+      el.addEventListener('click', (e) => {
+        console.log(e.target.parentNode.parentNode)//e.target.parentNode.parentNode.scrollTo({top: 100})
+        e.target.parentNode.parentNode.scrollTo({top: 0})
+      })
+    })
+  })
+</script>
 
 <style>
   .item h2{
