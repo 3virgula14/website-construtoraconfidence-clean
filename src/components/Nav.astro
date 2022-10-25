@@ -102,7 +102,7 @@
 				obj.svg.content.removeEventListener('click', obj.expand)
 				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: 0.1})
 				tl.to(wrapper, {height: " calc(100vh + 5px)"})
-				tl.to(obj.svg.logoName.construtora, {opacity: 1}, "<")
+				tl.to(obj.svg.logoName.construtora, {opacity: 1, duration: 0.1}, "<")
 				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: 0.2}, "<")
 				obj.svg.content.addEventListener('click', obj.abdunct) 
 			}
