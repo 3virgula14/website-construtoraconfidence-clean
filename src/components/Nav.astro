@@ -1,0 +1,121 @@
+
+
+<object type="image/svg+xml" data="/favicon.svg" id="wrapper">
+</object>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+	<div id="navbarBasicExample" class="navbar-menu">
+		<div class="navbar-start">
+		  <a class="navbar-item">
+			Início
+		  </a>
+	
+		  <a class="navbar-item">
+			Portfólio
+		  </a>
+
+		  <a class="navbar-item">
+			Sobre
+		  </a>
+		</div>
+	</div>
+</nav>
+
+<style>
+:root{
+    --base-laranja: #e36a13
+}
+
+#wrapper {
+    background: linear-gradient(90deg, rgba(248,132,49,1) 100%, rgba(255,164,99,1) 0%);
+    position: sticky;
+    transform-origin: top left;
+    width: 100vw;
+    height: 100vh;
+	top: 0px;
+	left: 0px;
+    transition: all 0.4s ease-in;
+	z-index: 10000;
+}
+.navbar{
+	position: sticky;
+	margin-top: -60px;
+	float: right;
+	background-color: transparent;
+	top: 10px;
+	right: 15px;
+	z-index: 19999;
+}
+.navbar-link, a.navbar-item:hover{
+	background-color: transparent;
+	color: rgb(255, 179, 124);
+}
+</style>
+<script>
+	window.addEventListener('load', () => {
+		//construction
+	let tl = gsap.timeline()
+	const abdunctedHeight = "70px";
+  
+	const LogoComponent = () => {
+		let wrapper = document.querySelector("#wrapper");
+		let all = wrapper.querySelectorAll("svg > *");
+		all.forEach(el => {
+			el.style.opacity = 0
+		})
+	
+		let content = wrapper.contentDocument.querySelector("#content");
+		content.style.opacity = 0;
+		content.style.cursor = "pointer";
+		console.log(content)
+	
+		let construtora = wrapper.contentDocument.querySelector("#construtora");
+		let confidence = wrapper.contentDocument.querySelector("#confidence");
+		console.log(construtora, confidence)
+	
+		//landing animations
+		tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
+		tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
+		tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
+
+		
+		let obj = {
+			wrapper,
+			svg: {
+				all,
+				content,
+				logoName:{
+					confidence,
+					construtora,    
+				}
+			},
+			abdunct: (e) => {
+				obj.svg.content.removeEventListener('click', obj.abdunct)
+				tl.to(wrapper, {height: abdunctedHeight})
+				obj.svg.content.style.transformOrigin = "center 40%"
+				tl.to(obj.svg.content, {transform: "translateX(-145vw) scale(1.3)", duration: 0.2}, "+=0.4")
+				tl.to(obj.svg.logoName.construtora, {opacity: 0, duration: 0.2}, "<")
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(4.7, 0, 0, 4.6, -1177.6, 143)", duration: 0.2}, "<")
+				obj.svg.content.addEventListener('click', obj.expand)
+			},
+			expand: (e) => {
+				obj.svg.content.removeEventListener('click', obj.expand)
+				tl.to(obj.svg.content, {transform: "scale(1) translate(0px, 0px)", duration: 0.1})
+				tl.to(wrapper, {height: " calc(100vh + 5px)"})
+				tl.to(obj.svg.logoName.construtora, {opacity: 1}, "<")
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.45, 0, 0, 1.333, 65.778, 156.655)", duration: 0.2}, "<")
+				obj.svg.content.addEventListener('click', obj.abdunct) 
+			}
+		}
+		
+		obj.svg.content.addEventListener('click', obj.abdunct)
+
+		return obj
+	}
+
+		let logo = LogoComponent();
+	})
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js" integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

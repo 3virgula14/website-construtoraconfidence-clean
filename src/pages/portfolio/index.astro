@@ -1,0 +1,22 @@
+---
+import MainHead from "../../MainHead.astro";
+
+const data = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
+    response.json()
+);
+---
+<html lang="en">
+<MainHead/>
+<body>
+    {data['portfolio']&& data['portfolio'].map((obra, index) => {
+        return(
+            <section id={`obra#${index}`}>
+                <h4>{obra.titulo}</h4>
+                {obra.story && 
+                    (<caption set:html={obra.story.twitterlike}/>
+                    <a href={index}>mais ...</a>)}
+            </section>
+        )
+    })}
+</body>
+</html>

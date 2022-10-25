@@ -1,0 +1,39 @@
+---
+import '../pages/portfolio/[...project].css';
+const {session, i} = Astro.props;
+---
+
+<div 
+    x-bind:class="open? 'item actived' : 'item'"
+    id={`img-galery-item img-galery-item#${i}`}
+    x-data="{ open: false }"
+    style="height: 300px">
+    { session.foto.split('.').pop() == "mp4" ?
+        <video  x-on:click="open=!open" muted={true} autoplay={true} loop={true}>
+            <source src={session.foto} type="video/mp4"/>
+        </video>
+    : 
+        <img x-on:click="open=!open"
+        src={session.foto} alt={session.shortstory} />
+    }
+    
+    <span class="glritem-desc">
+        <caption>
+            {session.shortstory}
+        </caption>
+        {session.tailstory}
+    </span>
+</div>
+
+<style>
+  .item.actived .glritem-desc{
+    width: auto !important;
+  }
+  .glritem-desc{
+    max-height: 60vh;
+    max-width: 40vw;
+    color: #fffafa;
+    mix-blend-mode: screen;
+    overflow-y: scroll !important;
+  }
+</style>

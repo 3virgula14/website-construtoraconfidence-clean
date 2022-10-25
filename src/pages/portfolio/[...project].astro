@@ -1,0 +1,50 @@
+---
+import Footer from '../../components/Footer.astro';
+import MainHead from '../../MainHead.astro';
+import Nav from '../../components/Nav.astro';
+import md from 'markdown-it';
+
+import "./[...project].css"
+import GlrImgItem from '../../components/GlrImgItem.astro';
+import Placa from '../../components/Placa.astro';
+
+  const feching = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
+    response.json()
+  );
+
+  const { project } = Astro.params;
+  const data = feching['portfolio'][project]
+---
+<html lang="en">
+	<MainHead/>
+<body>
+	<Placa/>
+
+	<Nav/>
+
+  <div id="img-galery">
+    {data.sessions && data.sessions.map( (session, i) => (
+        <>
+          <GlrImgItem session={session} i={i} />
+        </>
+    ))}
+  </div>
+
+  <div class=" section content ">
+    <h2>{data.titulo}</h2>
+
+    <section>
+      <p set:html={md().render(data.story.twitterlike)}>
+        
+      </p>
+    </section>
+    <section>
+        <p set:html={md().render(data.story["2paraph"])}>
+          
+        </p>
+    </section>
+  </div>
+
+	<Footer></Footer>
+</body>
+</html>

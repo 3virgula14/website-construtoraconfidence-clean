@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: master #
+
+media_folder: "public/uploads"
+public_folder: "https://construtoraconfidence.com/"
+publish_mode: editorial_workflow
+show_preview_links: false
+logo_url: https://www.construtoraconfidence.com/favicon.png
+media_library:
+  name: uploadcare
+  
+collections:
+  - name: "portfolio_items" # Used in routes, e.g., /admin/collections/sections
+    label: "Sessão de portfólio" # Used in the UI
+    format: json
+    public_folder: 'https://construtoraconfidence.com/uploads'
+    folder: "public/portfolio_items/" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.titulo}}-{{year}}-{{month}}-{{day}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      #- {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Título", name: "titulo", widget: "string"}
+      - label: "Galeria de Sessões"
+        name: "sessions"
+        widget: "list"
+        allow_add: true
+        fields: 
+          - {label: "Foto", name: "foto", widget: "file"}
+          - {label: "Título", name: "titulo", widget: "string"}
+          - {label: "Descrição curta", name: "shortstory", widget: "text"}
+          - {label: "Descrição longa", name: "tailstory", widget: "text"}
+          - {label: "MD Session", name: "mdsession", widget: "markdown"}
+              
+      - label: "Story"
+        name: story
+        widget: "object"
+        fields:
+          - {label: "Descrição curta", name: "twitterlike", widget: "text"}
+          - {label: "Descrição longa", name: "2paraph", widget: "markdown"}
