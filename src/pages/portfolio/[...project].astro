@@ -30,7 +30,9 @@ import Placa from '../../components/Placa.astro';
     ))}
   </div>
 
-  <div class=" section content ">
+  <div class=" section content " 
+		style="    max-width: 1000px;
+   			   margin-inline: auto;">
     <h2>{data.titulo}</h2>
 
     {data.story && Object.keys(data.story).map((storyPart, index) => 
