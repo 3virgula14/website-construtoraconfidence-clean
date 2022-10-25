@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs'
 
 fs.readdir(__dirname+"/public/portfolio_items", (err, files) => {
     if (err)
