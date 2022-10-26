@@ -104,6 +104,8 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(.45, 0, 0, 0.45, -100, 11)", duration: d}, "<");
 				tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
 				obj.svg.content.addEventListener('click', obj.expand);
+				obj.svg.logoName.construtora.addEventListener('click', obj.expand);
+				obj.svg.logoName.confidence.addEventListener('click', obj.expand);
 			},
 			expand: () => {
 				let d = 0.1;
@@ -113,7 +115,10 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
 				tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
-				obj.svg.content.addEventListener('click', obj.abdunct) 
+				obj.svg.content.addEventListener('click', obj.abdunct);
+				obj.svg.logoName.construtora.addEventListener('click', obj.abdunct);
+				obj.svg.logoName.confidence.addEventListener('click', obj.abdunct);
+				
 			}
 		}
 
