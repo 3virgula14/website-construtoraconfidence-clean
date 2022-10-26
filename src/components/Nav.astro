@@ -55,7 +55,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	color: rgb(255, 179, 124);
 }
 </style>
-<script id="scripttag" open={startsOpen}>
+<script id="scripttag" data-open=`${startsOpen}`>
 	
 	window.addEventListener('load', () => {
 		//construction
