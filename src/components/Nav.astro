@@ -107,12 +107,12 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 			},
 			expand: () => {
 				let d = 0.1;
-				obj.svg.content.removeEventListener('click', obj.expand)
-				tl.to(wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: d*2})
-				tl.to(obj.svg.content, {transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d})
-				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<")
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<")
-				setTimeout(() => construtoraTextContent.textContent = construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), 150)
+				obj.svg.content.removeEventListener('click', obj.expand);
+				tl.to(wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: d*2});
+				tl.to(obj.svg.content, {transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "+=0.4");
+				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
+				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
+				setTimeout(() => construtoraTextContent.textContent = construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), 150);
 				obj.svg.content.addEventListener('click', obj.abdunct) 
 			}
 		}
