@@ -53,7 +53,7 @@ export const {startsOpen} = Astro.props || {startsOpen: true}
 	color: rgb(255, 179, 124);
 }
 </style>
-<script open={"hi"}>
+<script id="scripttag" open={"hi"}>
 	
 	window.addEventListener('load', () => {
 		//construction
@@ -122,7 +122,7 @@ export const {startsOpen} = Astro.props || {startsOpen: true}
 	}
 	
 	let logo = LogoComponent();
-	console.log(document.currentScript.getAttribute('open'));
+	console.log(document.querySelector("#scripttag").getAttribute('open'));
 		
 	})
 </script>
