@@ -54,7 +54,6 @@ export const {startsOpen} = Astro.props || {startsOpen: true}
 }
 </style>
 <script open={"hi"}>
-	import {startsOpen} from './Nav.astro';
 	
 	window.addEventListener('load', () => {
 		//construction
@@ -124,8 +123,6 @@ export const {startsOpen} = Astro.props || {startsOpen: true}
 	
 	let logo = LogoComponent();
 	console.log(open);
-	if(!startsOpen) logo.abdunct()
-	else  logo.expand()
 		
 	})
 </script>
