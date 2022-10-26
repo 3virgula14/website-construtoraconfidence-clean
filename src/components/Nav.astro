@@ -99,7 +99,7 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 				let d = 0.2;
 				obj.svg.content.removeEventListener('click', obj.abdunct);
 				tl.to(wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: d*2});
-				tl.to(obj.svg.content, {transform: "matrix(.4, 0, 0, .4, -128, -20.5)", duration: d}, "+=0.4");
+				tl.to(obj.svg.content, {transform: "matrix(0.4, 0, 0, 0.4, -127.4, -20.42)", duration: d}, "+=0.4");
 				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(.3, 0, 0, .3, -114, -35)", duration: d}, "<");
 				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(.45, 0, 0, 0.45, -100, 11)", duration: d}, "<");
 				tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
