@@ -33,10 +33,11 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
     position: absolute;
     transform-origin: top left;
     width: 100vw;
-    height: 100vh;
+	height: 100vh;
 	top: 0px;
 	left: 0px;
 	z-index: 10000;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .navbar{
 	position: sticky;
