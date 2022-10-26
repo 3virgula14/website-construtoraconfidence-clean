@@ -1,5 +1,5 @@
 ---
-export const {startsOpen} = Astro.props || {startsOpen: true}
+const {startsOpen} = Astro.props || {startsOpen: true}
 ---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
@@ -53,7 +53,7 @@ export const {startsOpen} = Astro.props || {startsOpen: true}
 	color: rgb(255, 179, 124);
 }
 </style>
-<script id="scripttag" open={"hi"}>
+<script id="scripttag" open={startsOpen}>
 	
 	window.addEventListener('load', () => {
 		//construction
