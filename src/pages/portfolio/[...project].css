@@ -1,7 +1,7 @@
 
 #img-galery {
     height: 100vh;
-    top: 100px;
+    
     display: flex;
     overflow-y: scroll;
     overflow-x: visible;
@@ -9,6 +9,7 @@
     justify-content: center;
     flex-direction: row-reverse;
     margin: 0 auto;
+    margin-top: 4%;
     width: 100vw;
 }
 #img-galery:after {
