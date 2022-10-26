@@ -33,7 +33,6 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 #wrapper {
     background: linear-gradient(90deg, rgba(248,132,49,1) 100%, rgba(255,164,99,1) 0%);
     position: absolute;
-    transform-origin: top left;
     width: 100vw;
 	height: 100vh;
 	top: 0px;
@@ -126,7 +125,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	let logo = LogoComponent();
 	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);	
 		if(document.querySelector("#scripttag").attributes['data-open'].value == "false"){
-			gsap.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: 0});
+			gsap.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)"});
 			logo.abdunct()
 		}
 		
