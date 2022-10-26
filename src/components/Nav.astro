@@ -124,7 +124,11 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	}
 	
 	let logo = LogoComponent();
-	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);		
+	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);	
+		if(document.querySelector("#scripttag").attributes['data-open'].value == "false"){
+			tl.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)"});
+		}
+		
 	})
 </script>
 
