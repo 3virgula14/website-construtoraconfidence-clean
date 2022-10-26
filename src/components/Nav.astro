@@ -1,5 +1,5 @@
 ---
-export const {startsOpen} = Astro.props || {startsOpen: false}
+export const {startsOpen} = Astro.props || {startsOpen: true}
 ---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
@@ -123,7 +123,7 @@ export const {startsOpen} = Astro.props || {startsOpen: false}
 	}
 	
 	let logo = LogoComponent();
-		
+	console.log(startsOpen);
 	if(!startsOpen) logo.abdunct()
 	else  logo.expand()
 		
