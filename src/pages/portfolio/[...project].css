@@ -1,16 +1,16 @@
 
 #img-galery {
-    height: 100vh;
-    
+    height: calc(calc(100vh - 4em) - 50px);
     display: flex;
     overflow-y: scroll;
     overflow-x: visible;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row-reverse;
-    margin: 0 auto;
-    margin-top: 4%;
-    width: 100vw;
+    margin: 4% auto 0;
+    width: calc(100vw - 2em);
+    padding: 1em;
+    background-color: #F2F4F3;
 }
 #img-galery:after {
     content: "";
