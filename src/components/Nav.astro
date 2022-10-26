@@ -1,5 +1,7 @@
 ---
 const {startsOpen} = Astro.props || {startsOpen: true}
+
+console.log(startsOpen, document.querySelector("#wrapper").contentDocument.querySelector("#content"));
 ---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
@@ -122,7 +124,6 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	}
 	
 	let logo = LogoComponent();
-	console.log(document.querySelector("#scripttag").getAttribute('open'));
 		
 	})
 </script>
