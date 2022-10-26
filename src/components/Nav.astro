@@ -126,10 +126,11 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	let logo = LogoComponent();
 	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);	
 		if(document.querySelector("#scripttag").attributes['data-open'].value == "false"){
-			tl.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: 0});
-			tl.to(logo.svg.content, {transform: "matrix(.4, 0, 0, .4, -127.5, -20.5)", duration: 0}, "<");
-			tl.to(logo.svg.logoName.construtora, {opacity: 1, transform: "matrix(.3, 0, 0, .3, -114, -35)", duration: 0}, "<");
-			tl.to(logo.svg.logoName.confidence, {opacity: 1, transform: "matrix(.45, 0, 0, 0.45, -100, 11)", duration: 0}, "<");
+			gsap.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: 0});
+			gsap.to(logo.svg.content, {transform: "matrix(.4, 0, 0, .4, -127.5, -20.5)", duration: 0});
+			gsap.to(logo.svg.logoName.construtora, {opacity: 1, transform: "matrix(.3, 0, 0, .3, -114, -35)", duration: 0});
+			gsap.to(logo.svg.logoName.confidence, {opacity: 1, transform: "matrix(.45, 0, 0, 0.45, -100, 11)", duration: 0});
+			gsap.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: 0})
 		}
 		
 	})
