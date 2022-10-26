@@ -124,7 +124,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	}
 	
 	let logo = LogoComponent();
-	console.log(document.querySelector("#scripttag") , logo.wrapper);		
+	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);		
 	})
 </script>
 
