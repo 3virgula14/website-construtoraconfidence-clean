@@ -1,3 +1,0 @@
----
-mdsession: "### Teste"
----
