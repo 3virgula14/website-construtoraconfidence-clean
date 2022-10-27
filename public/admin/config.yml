@@ -14,7 +14,6 @@ collections:
     label: "Conteúdo de texto da landing logo à esquerda"
     folder: "public/static_content/"
     create: true
-    format: json
     slug: "logo-landing-content-left"
     fields:
       - {label: "Content", name: "mdsession", widget: "markdown", required: true}
@@ -23,10 +22,9 @@ collections:
     label: "Conteúdo de texto da landing logo à direita"
     folder: "public/static_content/"
     create: true
-    format: json
     slug: "logo-landing-content-right"
     fields:
-      - {label: "Content", name: "mdsession", widget: "markdown", required: true}
+      - {label: "Content", widget: "markdown", required: true}
       
   - name: "portfolio_items" # Used in routes, e.g., /admin/collections/sections
     label: "Sessão de portfólio" # Used in the UI

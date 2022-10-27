@@ -6,20 +6,33 @@ import Nav from '../components/Nav.astro';
 import md from 'markdown-it';
 
 const renderer = md({
-			html: true,
-			linkify: true,
-			typographer: true
-		  });
+	html: true,
+	linkify: true,
+	typographer: true
+});
+
+
+const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then((response) =>
+	response.json()
+);
+const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
+	response.json()
+);
+
 ---
 
 <html lang="en">
 	<MainHead/>
 <body>
 	<Nav startsOpen={true}>
-		<p slot="logonav-slot_left" set:html={renderer.render(``)}>
-		</p>
-		<p slot="logonav-slot_right" set:html={renderer.render(``)}>			
-		</p>
+		<>
+			<p slot="logonav-slot_left">
+				{left_com.mdsession}
+			</p>
+			<p slot="logonav-slot_right" >
+				{right_com.mdsession}
+			</p>
+		</>
 	</Nav>
 	<div class="section content">
 		<section id="resume">
