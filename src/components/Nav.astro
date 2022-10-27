@@ -64,6 +64,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	z-index: 10000;
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
+
 .navbar{
 	position: sticky;
 	margin-top: -60px;
@@ -96,7 +97,6 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 		
 			let content = wrapper.contentDocument.querySelector("#content");
 			content.style.opacity = 0;
-			content.style.cursor = "pointer";
 		
 			let construtora = wrapper.contentDocument.querySelector("#construtora");
 			let confidence = wrapper.contentDocument.querySelector("#confidence");
@@ -104,9 +104,9 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 		
 			//landing animations
 			tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
-			tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
-			tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
-
+			tl.to(confidence, {opacity: 1, cursor: "pointer", duration: 0.7}, 0.4)
+			tl.to(construtora, {opacity: 1, cursor: "pointer", duration: 0.4}, "<")
+ 
 
 			
 			let obj = {
@@ -121,14 +121,16 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 					obj.svg.content.removeEventListener('click', obj.abdunct);
 					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)", duration: d*2});
 					obj.wrapper.attributes.metaData = "abducted";
-					tl.to(obj.svg.content, {transform: "scale(.4) translate(-55%, -23%)", duration: d}, "<");
+					tl.to(obj.svg.content, {cursor : "initial", transform: "scale(.4) translate(-55%, -23%)", duration: d}, "<");
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(0.3, 0, 0, 0.3, -45, -32.5)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(0.45, 0, 0, 0.45, -35, 15)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
+		
 				
 					//listeners activation
 					Object.keys(obj.svg).filter(el => el != "content").forEach(o => {
 						obj.svg[o].addEventListener('click', obj.expand)
+						obj.svg[o].removeEventListener('click', obj.abdunct)
 					})
 				},
 				expand: () => {
@@ -136,13 +138,14 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 					obj.svg.content.removeEventListener('click', obj.expand);
 					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",  duration: d*2});
 					obj.wrapper.attributes.metaData = "expanded";
-					tl.to(obj.svg.content, {transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
+					tl.to(obj.svg.content, {cursor : "pointer", transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
 					
 					//listeners activation
 					Object.keys(obj.svg).forEach(o => {
+						obj.svg[o].removeEventListener('click', obj.expand)
 						obj.svg[o].addEventListener('click', obj.abdunct)
 					})
 				}
