@@ -12,7 +12,7 @@ media_library:
 collections:
   - name: "logo_content"
     label: "Conteúdo de texto da landing logo"
-    format: markdown
+    format: md
     folder: "public/static_content/"
     create: true
     slug: "{{fields.titulo}}"
