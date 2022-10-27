@@ -19,7 +19,7 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
                 <section id={`obra#${index}`}>
                     <div class="title-box">
                         <img onclick={`window.location = "portfolio/${index}"`} src={obra.sessions[0].foto} alt=""/>
-                        <h2>{obra.titulo}</h2>
+			    <h2>{obra.titulo}<small>{obra.status}</small></h2>
                     </div>
                     {obra.story && 
                         (<caption set:html={obra.story.twitterlike}/>
