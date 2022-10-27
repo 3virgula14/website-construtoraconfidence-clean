@@ -1,0 +1,42 @@
+---
+import GlrImgItem from "./GlrImgItem.astro";
+
+const {data, itemsLength} = Astro.props
+---
+<div id="img-galery" style={`--itemslength: ${itemsLength}`} >
+  
+  {data.sessions && data.sessions.map( (session, i) => (
+    <>
+    <GlrImgItem session={session} i={i} style={{maxWidth: (data.sessions? 100/(data.sessions.length/2) : 100)+"%", maxHeight: (data.sessions? 100/(data.sessions.length/4) : 100)+"%"}}/>
+    </>
+  ))}
+  <div id="backdrop"></div>
+  <h2>{data.titulo}</h2>
+</div>
+
+<style>
+  #img-galery #backdrop{
+    position: absolute;
+    width: calc(100% - 2em);
+    height: calc(100% - 3em - 50px);
+    filter: blur(4px);
+    background-color: rgba(227, 227, 227, 0.44);;
+    z-index: 5;
+    transition: 0.25s;
+    pointer-events: none;
+  }
+  #img-galery #backdrop.hovered{
+    background-color: rgba(227, 227, 227, 0.0);
+  }
+
+  #img-galery h2{
+    position: absolute;
+    top: 13vh;
+    left: 7vw;
+    z-index: 1002;
+    padding: 0.5em;
+    font-size: 24pt;
+    background-color: rgba(44, 42, 41, 0.53);
+    color: white;
+  }
+</style>

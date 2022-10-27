@@ -5,8 +5,8 @@ import Nav from '../../components/Nav.astro';
 import md from 'markdown-it';
 
 import "./[...project].css"
-import GlrImgItem from '../../components/GlrImgItem.astro';
 import Placa from '../../components/Placa.astro';
+import GlrImgWrapper from '../../components/GlrImgWrapper.astro';
 
   const feching = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
     response.json()
@@ -22,13 +22,7 @@ import Placa from '../../components/Placa.astro';
 
 	<Nav  startsOpen={false}/>
 
-  <div id="img-galery" style={`--itemslength: ${data.sessions? data.sessions.length : 0}`}>
-    {data.sessions && data.sessions.map( (session, i) => (
-        <>
-          <GlrImgItem session={session} i={i} style={{maxWidth: (data.sessions? 100/(data.sessions.length/2) : 100)+"%", maxHeight: (data.sessions? 100/(data.sessions.length/4) : 100)+"%"}}/>
-        </>
-    ))}
-  </div>
+  <GlrImgWrapper itemsLength={data.sessions? data.sessions.length : 0} data={data} />
 
   <div class=" section content " 
 		style="    max-width: 1000px;

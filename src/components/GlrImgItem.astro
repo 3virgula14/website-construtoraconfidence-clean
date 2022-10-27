@@ -36,7 +36,6 @@ const {session, i, style} = Astro.props;
     let wr = window.document.querySelectorAll("#img-galery .item")
     wr.forEach((el, index) => {
       el.addEventListener('click', (e) => {
-        console.log(e.target.parentNode.parentNode)//e.target.parentNode.parentNode.scrollTo({top: 100})
         e.target.parentNode.parentNode.scrollTo({top: 0})
       })
     })
@@ -44,15 +43,21 @@ const {session, i, style} = Astro.props;
 </script>
 
 <style>
+  .item{
+    pointer-events: all;
+  }
+  .item:hover{
+    transition: transform 0.3s 0.4s;
+    transform: scale(1.03)
+  }
   .item h2{
     position: absolute;
-    top: 1em;
-    left: 5%;
+    top: 4em;
+    right: 7%;
     mix-blend-mode: difference;
-    color: #0D9331;
     opacity: 0;
     transition: all 0.2s;
-    font-size: 32px;
+    font-size: 18pt;
   }
   .item.actived h2{
     opacity: 1;
