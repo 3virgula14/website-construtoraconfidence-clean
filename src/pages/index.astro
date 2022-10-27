@@ -12,12 +12,12 @@ const renderer = md({
 });
 
 
-const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then((response) =>
-	response.json()
-);
-const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
-	response.json()
-);
+// const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then((response) =>
+// 	response.json()
+// );
+// const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
+// 	response.json()
+// );
 
 ---
 
@@ -25,14 +25,14 @@ const right_com = await fetch('https://construtoraconfidence.com/static_content/
 	<MainHead/>
 <body>
 	<Nav startsOpen={true}>
-		<>
+		<!-- <>
 			<p slot="logonav-slot_left">
 				{left_com.mdsession}
 			</p>
 			<p slot="logonav-slot_right" >
 				{right_com.mdsession}
 			</p>
-		</>
+		</> -->
 	</Nav>
 	<div class="section content">
 		<section id="resume">
