@@ -12,12 +12,18 @@ import md from 'markdown-it';
 // });
 
 
-// const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.md').then((response) =>
-// 	response.text()
-// );
-// const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
-// 	response.json()
-// );
+const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then((response) =>
+	response.status == 200 && response.json()
+);
+const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
+	response.status == 200 &&response.json()
+);
+const welcome_message = await fetch('https://construtoraconfidence.com/static_content/empresa_welcome.json').then((response) =>
+	response.status == 200 &&response.json()
+);
+const followup = await fetch('https://construtoraconfidence.com/static_content/followup.json').then((response) =>
+	response.status == 200 &&response.json()
+);
 ---
 
 <html lang="en">
@@ -25,22 +31,22 @@ import md from 'markdown-it';
 <body>
 	<Nav startsOpen={true}>
 		 <>
-			<!-- <p slot="logonav-slot_left" >
+			<p slot="logonav-slot_left" >
 				{left_com}
-			</p> -->
-		<!--	
+			</p>
+			
 			<p slot="logonav-slot_right" >
 				{right_com.mdsession}
 			</p>
-		-->
+		
 		</> 
 	</Nav>
 	<div class="section content" style="max-width: 1000px;margin-inline: auto;">
 		<section id="resume">
-			Conteudo Empresa Resume
+			{welcome_message.mdsession}
 		</section>
 		<section id="followupnav">
-			Conteudo Followup Contextualização com links e navegação
+			{followup.mdsession}
 		</section>
 	</div>
 	<style>
