@@ -129,6 +129,7 @@ h1 {
 }	
 
 .title-box{
+	margin-bottom: 1.5em;
 }
 .title-box img{
 	object-fit: cover;
@@ -143,7 +144,6 @@ h1 {
 .title-box img:hover{
 	filter: brightness(1);
 	opacity: 1;
-	height: 130px;
 }
 .p_session img{
 	max-height: 70vh;
