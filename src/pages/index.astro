@@ -5,55 +5,60 @@ import MainHead from '../MainHead.astro';
 import Nav from '../components/Nav.astro';
 import md from 'markdown-it';
 
-// const renderer = md({
-// 	html: true,
-// 	linkify: true,
-// 	typographer: true
-// });
+const renderer = md({
+	html: true,
+	linkify: true,
+	typographer: true
+});
+const emptyRes = {
+	mdsession: ""
+}
+const returnData = (response) => {
+	console.log(response.status)
+	if(response.status == 200){
+		let d = response.json()
+		console.log(d);
+		return d;
+	}
+	else{
+		return emptyRes
+	}
+}
 
 
-const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then((response) =>
-	response.status == 200 && response.json()
-);
-const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then((response) =>
-	response.status == 200 &&response.json()
-);
-const welcome_message = await fetch('https://construtoraconfidence.com/static_content/empresa_welcome.json').then((response) =>
-	response.status == 200 &&response.json()
-);
-const followup = await fetch('https://construtoraconfidence.com/static_content/followup.json').then((response) =>
-	response.status == 200 &&response.json()
-);
+const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then(returnData);
+const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then(returnData);
+const welcome_message = await fetch('https://construtoraconfidence.com/static_content/empresa_welcome.json').then(returnData);
+const followup = await fetch('https://construtoraconfidence.com/static_content/followup.json').then(returnData);
+console.log(left_com, right_com, welcome_message, followup)
 ---
 
 <html lang="en">
 	<MainHead/>
 <body>
 	<Nav startsOpen={true}>
-		 <>
-			<p slot="logonav-slot_left" >
-				{left_com}
+		 <!-- <>
+			<p slot="logonav-slot_left">
+				<div set:html={renderer.render(left_com.mdsession)}></div>
 			</p>
 			
-			<p slot="logonav-slot_right" >
-				{right_com.mdsession}
+			<p slot="logonav-slot_right">
+				<div  set:html={renderer.render(right_com.mdsession)} ></div>
 			</p>
-		
-		</> 
+		</>  -->
 	</Nav>
 	<div class="section content" style="max-width: 1000px;margin-inline: auto;">
-		<section id="resume">
-			{welcome_message.mdsession}
+		<section id="resume" set:html={renderer.render(welcome_message.mdsession)}>
+			
 		</section>
-		<section id="followupnav">
-			{followup.mdsession}
+		<section id="followupnav" set:html={renderer.render(followup.mdsession)}>
+			
 		</section>
 	</div>
 	<style>
 		#resume{
 			margin-top: 50px;
-		}
-		
+		}	
 	</style>
 	<Footer></Footer>
 </body>

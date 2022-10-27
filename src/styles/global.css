@@ -109,12 +109,24 @@ h1 {
     font-size: medium;
     background-color: #F2F4F3;
 }
-
+.section.content p{
+	display: inline-block;
+}
+.section.content img{
+	margin-inline: 15px;
+	max-height: 400px;
+	max-width: 40%;
+}
 .section.content > h2{
     padding-inline: 1em;
     font-size: 32px;
 }
-
+.section.content img[alt="left"]{
+	float: left;
+}
+.section.content img[alt="right"]{
+	float: right;
+}	
 
 .title-box{
 }
