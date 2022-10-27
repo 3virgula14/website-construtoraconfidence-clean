@@ -138,6 +138,7 @@ h1 {
 	transition: all 0.2s;
 	height: 100px;
 	width: calc(100% + 10px);
+	max-width: 100%;
 	margin-left: -5px;
 	cursor: pointer;
 }
