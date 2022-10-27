@@ -16,7 +16,7 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
     <div class=" section content ">
         {data['portfolio']&& data['portfolio'].map((obra, index) => {
             return(
-                <section id={`obra#${index}`}>
+                <section id={`obra#${index}`} style="margin-bottom: 1.5em;">
                     <div class="title-box">
                         <img onclick={`window.location = "portfolio/${index}"`} src={obra.sessions[0].foto} alt=""/>
 			    <h2>{obra.titulo}</h2>
