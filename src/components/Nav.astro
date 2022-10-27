@@ -7,6 +7,15 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper">
 </object>
 
+<div class="logonav-slot left">
+	<slot name="logonav-slot_left">
+	</slot>
+</div>
+<div class="logonav-slot right">
+	<slot name="logonav-slot_right">
+	</slot>
+</div>
+
 <nav class="navbar" role="navigation" aria-label="main navigation">
 	<div id="navbarBasicExample" class="navbar-menu">
 		<div class="navbar-start">
@@ -29,6 +38,22 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 :root{
     --base-laranja: #e36a13;
     --nav-linear-bg: linear-gradient(0deg, rgba(195,103,37,1) 0%, rgba(255,164,99,1) 100%);
+}
+
+.logonav-slot{
+	position: absolute;
+	z-index: 19999;
+	top: 30vh;
+}
+
+.logonav-slot.left{
+	padding-left: 3%;
+	right: 75%;
+	text-align: right;
+}
+.logonav-slot.right{
+	padding-right: 3%;
+	left: 75%;
 }
 
 #wrapper {
@@ -59,77 +84,80 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 	
 	window.addEventListener('load', () => {
 		//construction
-	let tl = gsap.timeline()
-	const abdunctedTspanContent = "Confidence website"
-	const expandedTspanContent = "CONFIDENCE"
-  
-	const LogoComponent = () => {
-		let wrapper = document.querySelector("#wrapper");
+		let tl = gsap.timeline()
+		const abdunctedTspanContent = "Confidence website"
+		const expandedTspanContent = "CONFIDENCE"
+	
+		const LogoComponent = () => {
+			let wrapper = document.querySelector("#wrapper");
+
+			let all = wrapper.querySelectorAll("svg > *");
+			all.forEach(el => {
+				el.style.opacity = 0
+			})
 		
-		let all = wrapper.querySelectorAll("svg > *");
-		all.forEach(el => {
-			el.style.opacity = 0
-		})
-	
-		let content = wrapper.contentDocument.querySelector("#content");
-		content.style.opacity = 0;
-		content.style.cursor = "pointer";
-	
-		let construtora = wrapper.contentDocument.querySelector("#construtora");
-		let confidence = wrapper.contentDocument.querySelector("#confidence");
-		let construtoraTextContent = confidence.querySelector("tspan");
-	
-		//landing animations
-		tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
-		tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
-		tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
+			let content = wrapper.contentDocument.querySelector("#content");
+			content.style.opacity = 0;
+			content.style.cursor = "pointer";
+		
+			let construtora = wrapper.contentDocument.querySelector("#construtora");
+			let confidence = wrapper.contentDocument.querySelector("#confidence");
+			let construtoraTextContent = confidence.querySelector("tspan");
+		
+			//landing animations
+			tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
+			tl.to(confidence, {opacity: 1, duration: 0.7}, 0.4)
+			tl.to(construtora, {opacity: 1, duration: 0.4}, "<")
 
 
-		
-		let obj = {
-			wrapper,
-			svg: {
-				all,
-				content,
-				logoName:{
+			
+			let obj = {
+				wrapper,
+				svg: {
+					content,
 					confidence,
-					construtora,    
-				}
-			},
-			abdunct: () => {
-				let d = 0.2;
-				obj.svg.content.removeEventListener('click', obj.abdunct);
-				tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: d*2});
-				tl.to(obj.svg.content, {transform: "matrix(.4, 0, 0, .4, -127.5, -20.5)", duration: d}, "<");
-				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(.3, 0, 0, .3, -114, -35)", duration: d}, "<");
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(.45, 0, 0, 0.45, -100, 11)", duration: d}, "<");
-				tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
-				obj.svg.content.addEventListener('click', obj.expand);
-				obj.svg.logoName.construtora.addEventListener('click', obj.expand);
-				obj.svg.logoName.confidence.addEventListener('click', obj.expand);
-			},
-			expand: () => {
-				let d = 0.1;
-				obj.svg.content.removeEventListener('click', obj.expand);
-				tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: d*2});
-				tl.to(obj.svg.content, {transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
-				tl.to(obj.svg.logoName.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
-				tl.to(obj.svg.logoName.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
-				tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
-				obj.svg.content.addEventListener('click', obj.abdunct);
-				obj.svg.logoName.construtora.addEventListener('click', obj.abdunct);
-				obj.svg.logoName.confidence.addEventListener('click', obj.abdunct);
+					construtora
+				},
+				abdunct: () => {
+					let d = 0.2;
+					obj.svg.content.removeEventListener('click', obj.abdunct);
+					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)" , duration: d*2});
+					tl.to(obj.svg.content, {transform: "scale(.4) translate(-55%, -23%)", duration: d}, "<");
+					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(0.3, 0, 0, 0.3, -45, -32.5)", duration: d}, "<");
+					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(0.45, 0, 0, 0.45, -35, 15)", duration: d}, "<");
+					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
 				
+					//listeners activation
+					Object.keys(obj.svg).filter(el => el != "content").forEach(o => {
+						obj.svg[o].addEventListener('click', obj.expand)
+					})
+				},
+				expand: () => {
+					let d = 0.1;
+					obj.svg.content.removeEventListener('click', obj.expand);
+					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)", duration: d*2});
+					tl.to(obj.svg.content, {transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
+					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
+					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
+					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
+					
+					//listeners activation
+					Object.keys(obj.svg).forEach(o => {
+						obj.svg[o].addEventListener('click', obj.abdunct)
+					})
+				}
 			}
-		}
 
-		obj.svg.content.addEventListener('click', obj.abdunct);
+			Object.keys(obj.svg).forEach(o => {
+				obj.svg[o].addEventListener('click', obj.abdunct)
+			})
+			
+			return obj
+		}
 		
-		return obj
-	}
-	
-	let logo = LogoComponent();
-	console.log(document.querySelector("#scripttag").attributes['data-open'].value , logo.wrapper.style.transform);	
+		let logo = LogoComponent();
+
+		
 		if(document.querySelector("#scripttag").attributes['data-open'].value == "false"){
 			gsap.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)"});
 			logo.abdunct()

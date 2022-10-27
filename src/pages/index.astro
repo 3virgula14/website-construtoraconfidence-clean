@@ -3,14 +3,37 @@
 import Footer from '../components/Footer.astro';
 import MainHead from '../MainHead.astro';
 import Nav from '../components/Nav.astro';
-import Placa from '../components/Placa.astro'
+import md from 'markdown-it';
+
+const renderer = md({
+			html: true,
+			linkify: true,
+			typographer: true
+		  });
 ---
 
 <html lang="en">
 	<MainHead/>
 <body>
-	<Placa/>
-	<Nav startsOpen={true}/>
+	<Nav startsOpen={true}>
+		<p slot="logonav-slot_left" set:html={renderer.render(``)}>
+		</p>
+		<p slot="logonav-slot_right" set:html={renderer.render(``)}>			
+		</p>
+	</Nav>
+	<div class="section content">
+		<section id="resume">
+			Conteudo Empresa Resume
+		</section>
+		<section id="followupnav">
+			Conteudo Followup Contextualização com links e navegação
+		</section>
+	</div>
+	<style>
+		#resume{
+			margin-top: 50px;
+		}
+	</style>
 	<Footer></Footer>
 </body>
 </html>

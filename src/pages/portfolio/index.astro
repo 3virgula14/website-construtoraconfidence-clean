@@ -28,44 +28,6 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
             )
         })}
     </div>
-
-    <style>
-	.content {		
-            margin-inline: auto;
-	    max-width: 1000px;
-	}
-        .section.content > *{
-            margin-bottom: 40px;
-            font-size: medium;
-            padding-inline: 2em
-        }
-
-        .section.content > h2{
-            padding-inline: 1em;
-            font-size: 32px;
-        }
-
-        .title-box{
-        }
-        .title-box img{
-            object-fit: cover;
-            filter: brightness(0.9);
-            opacity: 0.75;
-            transition: all 0.2s;
-            height: 100px;
-            width: calc(100% + 10px);
-            margin-left: -5px;
-            cursor: pointer;
-        }
-        .title-box img:hover{
-            filter: brightness(1);
-            opacity: 1;
-            height: 130px;
-        }
-        .p_session img{
-            max-height: 70vh;
-        }
-    </style>
     
     <Footer></Footer>
 </body>

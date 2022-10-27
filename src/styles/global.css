@@ -98,3 +98,41 @@ h1 {
 	padding-left: 2rem;
 	padding-right: 2rem;
 }
+
+.content {		
+	margin-inline: auto;
+	max-width: 1000px;
+}
+
+.section.content > *{
+    padding: 2em;
+    font-size: medium;
+    background-color: #F2F4F3;
+}
+
+.section.content > h2{
+    padding-inline: 1em;
+    font-size: 32px;
+}
+
+
+.title-box{
+}
+.title-box img{
+	object-fit: cover;
+	filter: brightness(0.9);
+	opacity: 0.75;
+	transition: all 0.2s;
+	height: 100px;
+	width: calc(100% + 10px);
+	margin-left: -5px;
+	cursor: pointer;
+}
+.title-box img:hover{
+	filter: brightness(1);
+	opacity: 1;
+	height: 130px;
+}
+.p_session img{
+	max-height: 70vh;
+}

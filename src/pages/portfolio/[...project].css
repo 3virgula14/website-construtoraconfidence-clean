@@ -55,16 +55,6 @@
     text-align: right;
 }
 
-.section.content > *{
-    padding: 2em;
-    font-size: medium;
-    background-color: #F2F4F3;
-}
-
-.section.content > h2{
-    padding-inline: 1em;
-    font-size: 32px;
-}
 
 .p_session img{
     max-height: 70vh;
