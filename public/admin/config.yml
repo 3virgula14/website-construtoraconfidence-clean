@@ -25,6 +25,24 @@ collections:
     slug: "logo-landing-content-right"
     fields:
       - {label: "Content", name: "mdsession", widget: "markdown", required: true}
+  
+  - name: "empresa_welcome"
+    label: "Welcome Message"
+    folder: "public/static_content/"
+    create: true
+    slug: "empresa_welcome"
+    fields:
+      - {label: "Content", name: "mdsession", widget: "markdown", required: true}
+
+  - name: "followup"
+    label: "Welcome Message followup"
+    folder: "public/static_content/"
+    create: true
+    slug: "followup"
+    fields:
+      - {label: "Content", name: "mdsession", widget: "markdown", required: true}
+  
+  
       
   - name: "portfolio_items" # Used in routes, e.g., /admin/collections/sections
     label: "Sessão de portfólio" # Used in the UI
