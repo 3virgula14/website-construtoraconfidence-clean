@@ -10,7 +10,6 @@ const {data, itemsLength} = Astro.props
     <GlrImgItem session={session} i={i} style={{maxWidth: (data.sessions? 100/(data.sessions.length/2) : 100)+"%", maxHeight: (data.sessions? 100/(data.sessions.length/4) : 100)+"%"}}/>
     </>
   ))}
-  <div id="backdrop"></div>
   <h2>{data.titulo}</h2>
 </div>
 
@@ -24,9 +23,6 @@ const {data, itemsLength} = Astro.props
     z-index: 5;
     transition: 0.25s;
     pointer-events: none;
-  }
-  #img-galery #backdrop.hovered{
-    background-color: rgba(227, 227, 227, 0.0);
   }
 
   #img-galery h2{
