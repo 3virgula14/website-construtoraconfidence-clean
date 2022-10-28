@@ -55,7 +55,7 @@ collections:
     fields:
       - {label: "Content", name: "mdsession", widget: "markdown", required: true}
 
-   - name: "portfolio_intro_content"
+  - name: "portfolio_intro_content"
     label: "Conteúdo de texto da landing logo ao centro"
     folder: "public/static_content/"
     create: true
