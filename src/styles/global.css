@@ -114,9 +114,11 @@ h3{
 	padding-right: 2rem;
 }
 
-.content {		
+.section.content {		
 	margin-inline: auto;
 	max-width: 1000px;
+	padding-top: 85px;
+    width: 876px;
 }
 
 .section.content > *{

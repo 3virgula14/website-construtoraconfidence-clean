@@ -1,7 +1,7 @@
 ---
 import md from 'markdown-it';
 
-const {startsOpen} = Astro.props || {startsOpen: true}
+const {startsOpen, style} = Astro.props || {startsOpen: true}
 
 const renderer = md({
 	html: true,
@@ -26,9 +26,7 @@ const returnData = (response) => {
 const center_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-center.json').then(returnData);
 const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then(returnData);
 const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then(returnData);
-const welcome_message = await fetch('https://construtoraconfidence.com/static_content/empresa_welcome.json').then(returnData);
-const followup = await fetch('https://construtoraconfidence.com/static_content/followup.json').then(returnData);
-console.log(left_com, right_com, welcome_message, followup)
+
 
 ---
 
@@ -56,7 +54,7 @@ console.log(left_com, right_com, welcome_message, followup)
 
 
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" {style} role="navigation" aria-label="main navigation">
 	<div id="navbarBasicExample" class="navbar-menu">
 		<div class="navbar-start">
 		  <a class="navbar-item" href="/">
@@ -128,7 +126,6 @@ console.log(left_com, right_com, welcome_message, followup)
 	top: 1px;
 	right: 15px;
 	z-index: 19999;
-	margin-bottom: 40px;
 }
 .navbar-link, a.navbar-item:hover{
 	background-color: transparent;
