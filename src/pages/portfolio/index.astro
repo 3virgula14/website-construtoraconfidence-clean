@@ -11,7 +11,6 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
 <html lang="en">
 <MainHead/>
 <body>
-    <Placa/>
 	<Nav startsOpen={false}/>	
     <div class=" section content ">
         {data['portfolio']&& data['portfolio'].map((obra, index) => {

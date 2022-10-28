@@ -56,7 +56,7 @@ collections:
       - {label: "Content", name: "mdsession", widget: "markdown", required: true}
 
   - name: "portfolio_intro_content"
-    label: "Conteúdo de texto da landing logo ao centro"
+    label: "Conteúdo de texto de intro da pagina sobre"
     folder: "public/static_content/"
     create: true
     format: json

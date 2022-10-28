@@ -1,27 +1,51 @@
 ---
-import MainHead from '../MainHead.astro';
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav.astro';
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import md from 'markdown-it';
+import MainHead from "../MainHead.astro";
+
+const emptyRes = {
+	mdsession: ""
+}
+const returnData = (response) => {
+	console.log(response.status)
+	if(response.status == 200){
+		let d = response.json()
+		console.log(d);
+		return d;
+	}
+	else{
+		return emptyRes
+	}
+}
+
+const intro = await fetch('https://construtoraconfidence.com/static_content/portfolio_intro_content.json').then(returnData);
+
 ---
 <html lang="en">
 	<MainHead/>
 <body>
 	<Nav startsOpen={true}></Nav>
-    <div class="section content">
-        <h3>
-            Página em construção
-        </h3>
-        <img src="/construction_devices_mockup_high_angle_view.jpg"
-            id="sobre_img"
-        alt="">
+    <div class="section content sobre" >
+        
+        <div id="sobre_content">
+            <p set:html={md().render(intro.portfolio_intro_content)}></p>
+        </div>
+
     </div>
     <style>
-        #sobre_img{
-            width: 100%;
-            max-width: 70vw;
-            max-height: 100vh;
-            height: auto;
-            margin: 0 auto;
+        .section.content.sobre{
+            padding-top: 85px;
+            width: 800px;
+        }
+        #sobre_content{
+            padding-top: 2em;
+            background-image: url(/construction_devices_mockup_high_angle_view.jpg);
+            background-size: 120% auto;
+            background-position: 50% 0px;
+            background-repeat: no-repeat;
+            color: #a24806;
+            background-blend-mode: screen;
         }
     </style>
     <Footer></Footer>
