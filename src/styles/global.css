@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: "DIN";
+	src: url('fonts/DIN-Regular.ttf');
+}
+@font-face {
+	font-family: "Trade Gothic";
+	src: url('fonts/Trade Gothic LT.ttf');
+}
+
+
 /* Global variables */
 :root {
 	/* Colors */
@@ -61,7 +71,7 @@
 body {
 	margin: 0;
 	color: var(--t-fg);
-	font-family: 'Inter', 'system-ui', sans-serif;
+	font-family: "DIN";
 	font-size: 14px;
 	line-height: 1.6;
 }
@@ -81,8 +91,10 @@ a {
 
 h1 {
 	font-size: var(--f-u8);
+	font-family: "Trade Gothic";
 }
 h3{
+	font-family: "Trade Gothic";
 	font-size: 16pt;
 }
 

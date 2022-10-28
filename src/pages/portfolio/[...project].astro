@@ -8,12 +8,12 @@ import "./[...project].css"
 import Placa from '../../components/Placa.astro';
 import GlrImgWrapper from '../../components/GlrImgWrapper.astro';
 
-  const feching = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
-    response.json()
-  );
+const feching = await fetch('https://construtoraconfidence.com/data.json').then((response) =>
+  response.json()
+);
 
-  const { project } = Astro.params;
-  const data = feching['portfolio'][project]
+const { project } = Astro.params;
+const data = feching['portfolio'][project]
 ---
 <html lang="en">
 	<MainHead/>
@@ -22,31 +22,32 @@ import GlrImgWrapper from '../../components/GlrImgWrapper.astro';
 
 	<Nav  startsOpen={false}/>
 
-  <GlrImgWrapper itemsLength={data.sessions? data.sessions.length : 0} data={data} />
+  {data && 
+    <GlrImgWrapper itemsLength={data.sessions? data.sessions.length : 0} data={data} />
 
-  <div class=" section content " 
-		style="    max-width: 1000px;
-   			   margin-inline: auto;">
-    <h2>{data.titulo}</h2>
+    <div class=" section content " 
+      style="    max-width: 1000px;
+            margin-inline: auto;">
+      <h2>{data.titulo}</h2>
 
-    {data.story && Object.keys(data.story).map((storyPart, index) => 
-      <section class={storyPart}>
-          <p set:html={md().render(data.story[storyPart])}></p>
-      </section>
-    )}
-    
-    {data.sessions && data.sessions.length>0 && 
-      <>
-      <h3>Registros</h3>
-        {data.sessions.map( (session, i) => (
-          session['mdsession'] && <section class="p_session">
-            <div set:html={md().render(session['mdsession'])}/>
-          </section>
-        ))}
-      </>
-    }
-  </div>
-
+      {data.story && Object.keys(data.story).map((storyPart, index) => 
+        <section class={storyPart}>
+            <p set:html={md().render(data.story[storyPart])}></p>
+        </section>
+      )}
+      
+      {data.sessions ? data.sessions.length>0 ? 
+        <>
+        <h3>Registros</h3>
+          {data.sessions.map( (session, i) => (
+            session['mdsession'] && <section class="p_session">
+              <div set:html={md().render(session['mdsession'])}/>
+            </section>
+          ))}
+        </>
+      :null:null}
+    </div>
+  }
 	<Footer></Footer>
 </body>
 </html>

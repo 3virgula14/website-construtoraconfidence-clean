@@ -81,7 +81,7 @@ console.log(left_com, right_com, welcome_message, followup)
 }
 
 .logonav-slot{
-	position: absolute;
+	position: fixed;
 	z-index: 19999;
 	bottom: 25vh;
 }
@@ -91,6 +91,8 @@ console.log(left_com, right_com, welcome_message, followup)
 	top: 10vh;
 	left: 30%;
 	bottom: 80vh;
+	color: #781000;
+	text-align: center;
 }
 
 .logonav-slot.left{
@@ -151,6 +153,7 @@ console.log(left_com, right_com, welcome_message, followup)
 		
 			let content = wrapper.contentDocument.querySelector("#content");
 			content.style.opacity = 0;
+			content.style.cursor = "pointer"
 		
 			let construtora = wrapper.contentDocument.querySelector("#construtora");
 			let confidence = wrapper.contentDocument.querySelector("#confidence");
@@ -161,7 +164,7 @@ console.log(left_com, right_com, welcome_message, followup)
 			tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
 			tl.to(confidence, {opacity: 1, cursor: "pointer", duration: 0.7}, 0.4)
 			tl.to(construtora, {opacity: 1, cursor: "pointer", duration: 0.4}, "<")
-			
+
 			//secondary animations
 			//tl.to(content, {opacity: 1, duration: 0.7},  "+=1")
 			//tl.to(".logonav-slot.left", {opacity: 1, duration: 0.7},  "+=1")
@@ -177,15 +180,14 @@ console.log(left_com, right_com, welcome_message, followup)
 				},
 				abdunct: () => {
 					let d = 0.2;
+					tl.to(".logonav-slot", {display: 'none'});
 					obj.svg.content.removeEventListener('click', obj.abdunct);
 					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)", duration: d*2});
 					obj.wrapper.attributes.metaData = "abducted";
 					tl.to(obj.svg.content, {cursor : "initial", transform: "scale(.4) translate(-55%, -23%)", duration: d}, "<");
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(0.3, 0, 0, 0.3, -45, -32.5)", duration: d}, "<");
-					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(0.45, 0, 0, 0.45, -35, 15)", duration: d}, "<");
+					tl.to(obj.svg.confidence, {opacity: 1, cursor: "initial", transform: "matrix(0.45, 0, 0, 0.45, -35, 15)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
-					tl.to(".logonav-slot", {opacity: 0}, "<")
-		
 				
 					//listeners activation
 					Object.keys(obj.svg).filter(el => el != "content").forEach(o => {
@@ -195,14 +197,14 @@ console.log(left_com, right_com, welcome_message, followup)
 				},
 				expand: () => {
 					let d = 0.1;
+					tl.to(".logonav-slot", {display: 'block'});
 					obj.svg.content.removeEventListener('click', obj.expand);
 					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",  duration: d*2});
 					obj.wrapper.attributes.metaData = "expanded";
-					tl.to(obj.svg.content, {cursor : "pointer", transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
+					tl.to(obj.svg.content, {cursor : "pointer", cursor: "pointer", transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
-					tl.to(".logonav-slot", {opacity: 1}, "<")
 					
 					//listeners activation
 					Object.keys(obj.svg).forEach(o => {
@@ -224,6 +226,7 @@ console.log(left_com, right_com, welcome_message, followup)
 		
 		if(document.querySelector("#scripttag").attributes['data-open'].value == "false"){
 			gsap.to(logo.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 9%, 0% 9%)"});
+			gsap.to(".logonav-slot", {display: 'none'});
 			logo.abdunct()
 		}
 		
