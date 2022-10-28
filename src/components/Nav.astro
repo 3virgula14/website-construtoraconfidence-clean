@@ -197,7 +197,6 @@ console.log(left_com, right_com, welcome_message, followup)
 				},
 				expand: () => {
 					let d = 0.1;
-					tl.to(".logonav-slot", {display: 'block'});
 					obj.svg.content.removeEventListener('click', obj.expand);
 					tl.to(obj.wrapper, {clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",  duration: d*2});
 					obj.wrapper.attributes.metaData = "expanded";
@@ -205,6 +204,7 @@ console.log(left_com, right_com, welcome_message, followup)
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
+					tl.to(".logonav-slot", {display: 'block'});
 					
 					//listeners activation
 					Object.keys(obj.svg).forEach(o => {

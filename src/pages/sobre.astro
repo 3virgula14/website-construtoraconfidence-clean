@@ -3,3 +3,28 @@ import MainHead from '../MainHead.astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 ---
+<html lang="en">
+	<MainHead/>
+<body>
+	<Nav startsOpen={true}></Nav>
+    <div class="section content">
+        <h3>
+            Página em construção
+        </h3>
+        <img src="/construction_devices_mockup_high_angle_view.jpg"
+            id="sobre_img"
+        alt="">
+    </div>
+    <style>
+        #sobre_img{
+            width: 100%;
+            max-width: 70vw;
+            max-height: 100vh;
+            height: auto;
+            margin: 0 auto;
+        }
+    </style>
+    <Footer></Footer>
+</body>
+</html>
+    
