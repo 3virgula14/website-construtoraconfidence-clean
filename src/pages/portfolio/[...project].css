@@ -5,12 +5,14 @@
     overflow-y: scroll;
     overflow-x: visible;
     flex-wrap: wrap;
-    justify-content: center;
     flex-direction: row-reverse;
     margin: 4% auto 0;
-    width: calc(100vw - 3em);
-    padding: 1em;
-    background-color: #F2F4F3;
+    width: 100vw;
+    padding: 0em;
+    background-color: #f2f4f3;
+    justify-content: center;
+    align-content: flex-start;
+    text-align: center;
 }
 #img-galery:after {
     content: "";
@@ -25,6 +27,14 @@
     transform: scale(1);
     transition: all .25s;
     overflow: visible;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+#img-galery .item:hover{
+    mix-blend-mode: normal;
+    transform: scale(1.05);
+    z-index: 2;
+    opacity: 1;
 }
 #img-galery .item.actived {
     z-index: 1001;
