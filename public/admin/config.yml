@@ -46,6 +46,14 @@ collections:
     fields:
       - {label: "Content", name: "mdsession", widget: "markdown", required: true}
   
+  - name: "logo-landing-content-center"
+    label: "Conteúdo de texto da landing logo ao centro"
+    folder: "public/static_content/"
+    create: true
+    format: json
+    slug: "logo-landing-content-center"
+    fields:
+      - {label: "Content", name: "mdsession", widget: "markdown", required: true}
   
       
   - name: "portfolio_items" # Used in routes, e.g., /admin/collections/sections

@@ -1,18 +1,60 @@
 ---
+import md from 'markdown-it';
+
 const {startsOpen} = Astro.props || {startsOpen: true}
+
+const renderer = md({
+	html: true,
+	linkify: true,
+	typographer: true
+});
+const emptyRes = {
+	mdsession: ""
+}
+const returnData = (response) => {
+	console.log(response.status)
+	if(response.status == 200){
+		let d = response.json()
+		console.log(d);
+		return d;
+	}
+	else{
+		return emptyRes
+	}
+}
+
+const center_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-center.json').then(returnData);
+const left_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-left.json').then(returnData);
+const right_com = await fetch('https://construtoraconfidence.com/static_content/logo-landing-content-right.json').then(returnData);
+const welcome_message = await fetch('https://construtoraconfidence.com/static_content/empresa_welcome.json').then(returnData);
+const followup = await fetch('https://construtoraconfidence.com/static_content/followup.json').then(returnData);
+console.log(left_com, right_com, welcome_message, followup)
+
 ---
 
 <object type="image/svg+xml" data="/favicon.svg" id="wrapper" metadata="expanded">
+	
 </object>
-
+<div class="logonav-slot center">
+	<div set:html={renderer.render(center_com.mdsession)}></div>
+</div>
 <div class="logonav-slot left">
-	<slot name="logonav-slot_left">
-	</slot>
+	<div set:html={renderer.render(left_com.mdsession)}></div>
 </div>
 <div class="logonav-slot right">
-	<slot name="logonav-slot_right">
-	</slot>
+	<div  set:html={renderer.render(right_com.mdsession)} ></div>
 </div>
+ <!-- <>
+			<p slot="logonav-slot_left">
+				<div set:html={renderer.render(left_com.mdsession)}></div>
+			</p>
+			
+			<p slot="logonav-slot_right">
+				<div  set:html={renderer.render(right_com.mdsession)} ></div>
+			</p>
+		</>  -->
+
+
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
 	<div id="navbarBasicExample" class="navbar-menu">
@@ -41,17 +83,29 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 .logonav-slot{
 	position: absolute;
 	z-index: 19999;
-	top: 30vh;
+	bottom: 25vh;
+}
+
+.logonav-slot.center{
+	width: 40%;
+	top: 10vh;
+	left: 30%;
+	bottom: 80vh;
 }
 
 .logonav-slot.left{
 	padding-left: 3%;
 	right: 75%;
 	text-align: right;
+	color: aliceblue;
 }
 .logonav-slot.right{
 	padding-right: 3%;
-	left: 75%;
+	left: 30%;
+	font-size: 10pt;
+	bottom: 10vh;
+	width: 40%;
+	text-align: center;
 }
 
 #wrapper {
@@ -101,6 +155,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 			let construtora = wrapper.contentDocument.querySelector("#construtora");
 			let confidence = wrapper.contentDocument.querySelector("#confidence");
 			let construtoraTextContent = confidence.querySelector("tspan");
+
 		
 			//landing animations
 			tl.to(content, {opacity: 1, duration: 0.7},  "+=0")
@@ -129,6 +184,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(0.3, 0, 0, 0.3, -45, -32.5)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(0.45, 0, 0, 0.45, -35, 15)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(expandedTspanContent, abdunctedTspanContent), duration: d}, "<");
+					tl.to(".logonav-slot", {opacity: 0}, "<")
 		
 				
 					//listeners activation
@@ -146,6 +202,7 @@ const {startsOpen} = Astro.props || {startsOpen: true}
 					tl.to(obj.svg.construtora, {opacity: 1, transform: "matrix(1, 0, 0, 1, 0, 0)", duration: d}, "<");
 					tl.to(obj.svg.confidence, {opacity: 1, transform: "matrix(1.5, 0, 0, 1.5, 64, 157)", duration: d}, "<");
 					tl.to(construtoraTextContent, {textContent: construtoraTextContent.textContent.replace(abdunctedTspanContent, expandedTspanContent), duration: .15}, "<");
+					tl.to(".logonav-slot", {opacity: 1}, "<")
 					
 					//listeners activation
 					Object.keys(obj.svg).forEach(o => {
