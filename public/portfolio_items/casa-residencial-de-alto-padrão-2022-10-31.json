@@ -1,0 +1,31 @@
+{
+  "titulo": " Casa residencial de alto padrão.",
+  "status": "Obra finalizada e entregue",
+  "story": {
+    "twitterlike": "Cliente: Geraldo Liberato\nCondomínio Haras Camping Club \nVitória da Conquista, Bahia\n",
+    "2paraph": "-﻿--"
+  },
+  "sessions": [
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_20221017_112143.jpg",
+      "titulo": "Lateral"
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_20221017_104004.jpg",
+      "titulo": "Frente"
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_20221017_112252.jpg",
+      "titulo": "Interior"
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_20221017_112452.jpg",
+      "titulo": "Banheiro"
+    },
+    {
+      "foto": "https://construtoraconfidence.com/uploads/img_20221017_112545.jpg",
+      "titulo": "Banheiro 2"
+    }
+  ],
+  "cat": "Haras Camping Club, Vitória da Conquista"
+}
