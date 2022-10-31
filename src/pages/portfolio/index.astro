@@ -11,7 +11,10 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
 <html lang="en">
 <MainHead/>
 <body>
-	<Nav startsOpen={false}/>	
+	<Nav startsOpen={false}/>
+	<h3 class" section content ">
+		Abaixo a lista de nossos trabalhos
+	</h3>
     <div class=" section content ">
         {data['portfolio']&& data['portfolio'].map((obra, index) => {
             return(
