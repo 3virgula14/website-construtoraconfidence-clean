@@ -1,11 +1,8 @@
 
 #img-galery {
     height: calc(100vh - 4em - 50px);
-    display: flex;
     overflow-y: scroll;
     overflow-x: visible;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
     margin: 4% auto 0;
     width: 100vw;
     padding: 0em;
@@ -13,6 +10,9 @@
     justify-content: center;
     align-content: flex-start;
     text-align: center;
+    display: grid;
+    grid-template-rows: repeat(var(--itemslength)/2 , 1fr);
+    grid-template-columns: repeat(var(--itemslength)/2, 1fr);
 }
 #img-galery:after {
     content: "";

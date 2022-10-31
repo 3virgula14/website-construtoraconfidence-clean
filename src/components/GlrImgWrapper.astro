@@ -7,7 +7,7 @@ const {data, itemsLength} = Astro.props
   
   {data.sessions && data.sessions.map( (session, i) => (
     <>
-    <GlrImgItem session={session} i={i} style={{maxWidth: (data.sessions? 100/(data.sessions.length/2) : 100)+"%", maxHeight: (data.sessions? 100/(data.sessions.length/4) : 100)+"%"}}/>
+    <GlrImgItem session={session} i={i}/>
     </>
   ))}
   <h2>{data.titulo}</h2>

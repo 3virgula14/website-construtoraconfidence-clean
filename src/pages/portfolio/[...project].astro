@@ -31,7 +31,9 @@ const data = feching['portfolio'][project]
 
       {data.story && Object.keys(data.story).map((storyPart, index) => 
         <section class={storyPart}>
-            <p set:html={md().render(data.story[storyPart])}></p>
+            <p>
+              {data.story[storyPart]}
+            </p>
         </section>
       )}
       
