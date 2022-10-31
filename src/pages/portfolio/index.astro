@@ -26,7 +26,7 @@ const data = await fetch('https://construtoraconfidence.com/data.json').then((re
                     </div>
                     {obra.story && 
                         (<caption set:html={obra.story.twitterlike}/>
-                        <a href={`portfolio/${index}`}>mais ...</a>)}
+                        <br/><a href={`portfolio/${index}`}>mais ...</a>)}
                 </section>
             )
         })}
