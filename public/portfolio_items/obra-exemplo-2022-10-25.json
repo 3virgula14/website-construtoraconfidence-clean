@@ -1,12 +1,12 @@
 {
-  "titulo": "Obra (exemplo)",
+  "titulo": " Ampliação da área de atendimento de caminhões e máquinas pesadas.",
   "sessions": [
     {
       "foto": "https://construtoraconfidence.com/uploads/img_2028.jpeg",
-      "titulo": " Imagem 1",
-      "shortstory": " Descrição curta da imagem 1",
-      "tailstory": " Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1  Descrição longa da imagem 1 ",
-      "mdsession": " Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1 Descrição md da imagem 1"
+      "titulo": "",
+      "shortstory": "",
+      "tailstory": "",
+      "mdsession": ""
     },
     {
       "foto": "https://construtoraconfidence.com/uploads/img_2026.jpeg",
@@ -33,9 +33,9 @@
     }
   ],
   "story": {
-    "twitterlike": "#Story\n\nNunc vitae pulvinar orci. Aliquam lacinia ultricies metus vulputate dapibus. Donec iaculis, ipsum vitae tempus imperdiet, justo mi dapibus nisl, vel posuere massa justo sed justo. Aliquam vel dictum ex. Aenean at eleifend arcu, et porta neque. Vivamus non justo at augue viverra ultrices vitae eget dui. Sed mauris enim, pellentesque ac nulla pellentesque, viverra ",
-    "2paraph": "\\#Descrição longa\n\n\n\n> They can span multiple paragraphs,\n> if you like.\n\nUse 3 dashes for an em-dash. Use 2 dashes for ranges (ex., \"it's all\nin chapters 12--14\"). Three dots ... will be converted to an ellipsis.\nUnicode is supported. ☺\n\n\n\n(which makes copying & pasting easier). You can optionally mark the\ndelimited block for Pandoc to syntax highlight it:\n\n\n\n```\nExemplo   | Valor do exemplo\n--------- | ------\nExemplo 1 | R$ 10\nExemplo 2 | R$ 8\nExemplo 3 | R$ 7\nExemplo 4 | R$ 8\n```"
+    "twitterlike": "Cliente: HME Comércio de Lubrificantes Ltda.\nVitória da Conquista - Bahia.",
+    "2paraph": "-﻿--"
   },
-  "cat": "Vitória da conquista, Central do Óleo",
+  "cat": "Vitória da conquista",
   "status": "Em andamento"
 }
